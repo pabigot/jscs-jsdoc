@@ -23,7 +23,7 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "comment-parser": "^0.3.1",
+    "comment-parser": "git://github.com/pabigot/comment-parser#pending",
     "jsdoctypeparser": "~1.2.0"
   },
   "devDependencies": {

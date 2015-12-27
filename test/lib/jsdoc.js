@@ -139,7 +139,7 @@ describe('jsdoc', function() {
         });
 
         it('should parses comment and create all tags and types', function() {
-            expect(c1.description).to.eq('Description\n  with a new line\n');
+            expect(c1.description).to.eq('Description\nwith a new line\n');
             expect(c1.tags.length).to.eq(4);
 
             var tag1 = c1.tags[0];
@@ -165,6 +165,24 @@ describe('jsdoc', function() {
             expect(example.type).to.eq(undefined);
             expect(example.name).to.eq(undefined);
             expect(example.description).to.eq('// use this anywhere\nmakeFun(value, some);');
+        });
+
+    });
+
+    describe('comment2', function() {
+        var c1;
+
+        before(function() {
+            c1 = new Comment(
+                '/** Description\n' +
+                ' *   with a new line\n' +
+                ' *\n' +
+                ' * @tag1 value */', {start: {line: 4, column: 2}});
+        });
+
+        it('should parses comment and create all tags and types', function() {
+            expect(c1.description).to.eq('Description\nwith a new line\n');
+            expect(c1.tags.length).to.eq(1);
         });
 
     });
